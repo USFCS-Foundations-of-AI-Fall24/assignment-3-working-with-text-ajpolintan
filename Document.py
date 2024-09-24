@@ -28,14 +28,12 @@ def euclidean_distance(d1, d2) :
 def cosine_similarity(d1,d2) :
     union = d1.tokens.keys() | d2.tokens.keys()
     num = sum([d1.tokens[item] * d2.tokens[item] for item in union])
-    d1_dm =  sqrt(sum([d1.tokens[item]**2 for item in d1.tokens.keys()])) 
-    d2_dm = sqrt(sum([d2.tokens[item]**2 for item in d2.tokens.keys()]))
-    dm = d1_dm * d2_dm
-    cos = num / dm
+    dm =  sqrt(sum([d1.tokens[item]**2 for item in d1.tokens.keys()])) * sqrt(sum([d2.tokens[item]**2 for item in d2.tokens.keys()]))
     
+    #calculate cosine
+    cos = num / dm
+
     print(num)
-    print(d1_dm)
-    print(d2_dm)
     print("COS:" + str(cos))
 
 
