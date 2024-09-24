@@ -35,8 +35,6 @@ def cosine_similarity(d1,d2) :
 
     print(num)
     print("COS:" + str(cos))
-
-
     return cos
   
    
