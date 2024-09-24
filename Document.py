@@ -20,10 +20,26 @@ class Document :
 def euclidean_distance(d1, d2) :
     # take the union of the tokens in each document
     union = d1.tokens.keys() | d2.tokens.keys()
+    print(union)
     dist = sum([(d1.tokens[item] - d2.tokens[item])**2 for item in union])
     return dist
 
 ## You implement this.
 def cosine_similarity(d1,d2) :
-    pass
+    union = d1.tokens.keys() | d2.tokens.keys()
+    num = sum([d1.tokens[item] * d2.tokens[item] for item in union])
+    d1_dm =  sqrt(sum([d1.tokens[item]**2 for item in d1.tokens.keys()])) 
+    d2_dm = sqrt(sum([d2.tokens[item]**2 for item in d2.tokens.keys()]))
+    dm = d1_dm * d2_dm
+    cos = num / dm
+    
+    print(num)
+    print(d1_dm)
+    print(d2_dm)
+    print("COS:" + str(cos))
+
+
+    return cos
+  
+   
 
