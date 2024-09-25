@@ -19,7 +19,38 @@ class Cluster :
 
     ## You do this.
     def calculate_centroid(self):
-        pass
+        ##creates new document
+        num_documents = len(self.members)
+        print("HIIII")
+        ##cat dog dog
+        ##cat = 1 
+        ##dog = 2
+        ##
+        #then do it for eery 
+    
+        ##
+        #find the new value of of every centroid 
+        union = []
+        #find the union of each member
+        #check the sum
+        #
+        #find all the unique keys
+        for d in self.members :
+            if len(union) == 0 :
+                union = d.tokens.keys() 
+            else : 
+                union = union | d.tokens.keys()
+
+        print(union)
+        for item in union :
+            #m is a document
+            for m in self.members :
+                self.centroid.tokens[item] += m.tokens[item] 
+            self.centroid.tokens[item] = self.centroid.tokens[item] / num_documents
+        
+        print(self.centroid)
+        #add the tokens to the centroid
+        return self.centroid
 
 
 # Call like so: k_means(2, ['pos','neg'], positive_docs + negative_docs)
@@ -38,3 +69,4 @@ def k_means(n_clusters, true_classes, data) :
     #   cosine similarity
     #   compute the centroids of each cluster
     return cluster_list
+
