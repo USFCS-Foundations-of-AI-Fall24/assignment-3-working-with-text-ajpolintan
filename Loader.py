@@ -76,10 +76,11 @@ if __name__=="__main__" :
     positive_docs = create_easy_documents(pos_reviews, 'pos',
                                  filters=[],
                                  transforms=[])
-
+    #print(positive_docs)
     negative_docs = create_easy_documents(neg_reviews, 'neg',
                                     filters=[],
                                  transforms=[])
+    #print(negative_docs)
 
 
 

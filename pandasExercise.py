@@ -6,7 +6,7 @@ bc_data.head()
 
 
 classifications  = bc_data['class']
-no = classifications.filter(like='no', axis=1)
+no = classifications.filter(like='no', axis=0)
 yes = classifications.filter(like='recurrence-events', axis=0)
 print(no)
 

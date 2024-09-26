@@ -1,6 +1,6 @@
 import random
-
 from Document import *
+from Classifier import classify
 
 class Cluster :
     ## a cluster is a group of documents
@@ -22,17 +22,8 @@ class Cluster :
         ##creates new document
         num_documents = len(self.members)
         print("HIIII")
-        ##cat dog dog
-        ##cat = 1 
-        ##dog = 2
-        ##
-        #then do it for eery 
-    
-        ##
-        #find the new value of of every centroid 
         union = []
-        #find the union of each member
-        #check the sum
+  
         #
         #find all the unique keys
         for d in self.members :
@@ -59,8 +50,33 @@ def k_means(n_clusters, true_classes, data) :
     cluster_list = [Cluster(centroid=Document(true_class=item)) for item in true_classes]
 
     ## initially assign data randomly.
+    for c in cluster_list :
+        c.members.append(random.choice(data))
 
     ## compute initial cluster centroids
+    for c in cluster_list:
+        c.calculate_centroid()
+
+    i = 0
+    while i < n_clusters :
+        i += 1
+        
+        ##check every document
+        #this will return the tree class
+        #for every document in the data. classift it 
+        for d in data :
+            #classify returns the centroid which is a document
+            d.true_class = classify(cluster_list, d)      
+            for c in cluster_list :
+                if d.true_class == c.true_class :
+                    c.members.append(d)
+
+            
+
+
+        for c in cluster_list :
+            c.calculate_centroid()
+                
 
     # while not done and i < limit
     #   i++
