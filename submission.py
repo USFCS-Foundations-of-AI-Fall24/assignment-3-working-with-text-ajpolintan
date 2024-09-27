@@ -2,7 +2,7 @@ from Document import *
 from Cluster import *
 if __name__ == '__main__' :
     d = Document(true_class='pos')
-    d.add_tokens(['cat','cat','dog', 'fish','jungkook', "woooooooof"])
+    d.add_tokens(['cat','dog','dog', 'fish','jungkook', "woooooooof"])
     d2 = Document(true_class='pos')
     d2.add_tokens(['cat', 'fish'])
     d3 = Document(true_class='pos')

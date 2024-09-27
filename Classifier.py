@@ -9,6 +9,7 @@ def classify(clusters, item) :
         if d < dist :
             dist = d
             best = c
+            
     return best.centroid.true_class
 
 

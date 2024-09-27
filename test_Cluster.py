@@ -1,4 +1,5 @@
 from unittest import TestCase
+import unittest
 from Cluster import *
 from Document import *
 
@@ -12,7 +13,14 @@ class TestCluster(TestCase):
         d2 = Document(true_class='pos')
         d2.add_tokens(['cat', 'dog', 'fish'])
         d3 = Document(true_class='neg')
-        d3.add_tokens(['bunny', 'lizard', 'octopus'])
-        print(k_means(2, ['pos', 'neg'], [d,d2,d3]))
+        d3.add_tokens(['bunny', 'lizard', 'octopus', 'bunny'])
+        d4 = Document(true_class='neg')
+        d4.add_tokens(['rare', 'care', 'bear'])
+        #if there is an empty document ignore 
+        print(k_means(2, ['pos', 'neg'], [d,d2,d3,d4]))
+        
 
 
+
+if __name__ == '__main__':
+    unittest.main()

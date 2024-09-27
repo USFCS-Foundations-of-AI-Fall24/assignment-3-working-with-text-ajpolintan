@@ -50,12 +50,15 @@ def convert_to_lowercase(token) :
 ## homogeneity: for each cluster, what fraction of the cluster is comprised of the largest class?
 # call this like so:
 # result = k_means(2, ['pos','neg'], positive_docs + negative_docs)
-# compute_homogeneity(result, ['pos','neg'])
+#ONLY ONE CLUSTER
+# compute_homogeneity(re sult, ['pos','neg'])
 def compute_homogeneity(list_of_clusters, list_of_classes) :
     # hlist will be the homogeneity for each cluster.
-    hlist = []
-
-    return hlist
+    #hlist = []
+    #for c in list_of_clusters :
+        
+    pass
+    #return hlist
 
 ## completeness: for the dominant class in each cluster, what fraction
 # of that class' members are in that cluster?
@@ -63,11 +66,21 @@ def compute_homogeneity(list_of_clusters, list_of_classes) :
 # result = k_means(2, ['pos','neg'], positive_docs + negative_docs)
 # compute_completeness(result, ['pos','neg'])
 
+#find the dominate class. Completness looks at original dataset. 
+
+#GET THE TOTAL NUMBER OF POSITIVE AND NEGATIVES
+#FIND THE DOMINANT CLASS. GET THE TOTAL NUMBER OF THE DOMINANT CLASS
+#DIVIDE BASED OFF THE TOTAL NUMBER OF POSITIVES AND NEGATIVES ACROSS THE CLUSTERS
+#DO NOT DIVIDE BY NUMBER OF POSITIVE AND NEGATIVES WITHIN A CLUSTER
+#find number of the donimation class
+#divide by the number of class members
+
 def compute_completeness(list_of_clusters, list_of_classes) :
     # clist will be the homogeneity for each cluster.
-    clist = []
-
-    return clist
+    
+    #  clist = []
+    pass 
+    # return clist
 
 if __name__=="__main__" :
 
@@ -80,6 +93,10 @@ if __name__=="__main__" :
     negative_docs = create_easy_documents(neg_reviews, 'neg',
                                     filters=[],
                                  transforms=[])
+    
+    
+    result = k_means(2, ['pos','neg'], positive_docs + negative_docs)
+
     #print(negative_docs)
 
 

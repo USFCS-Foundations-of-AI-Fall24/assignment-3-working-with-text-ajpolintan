@@ -4,9 +4,10 @@ from collections import defaultdict
 from math import sqrt
 
 class Document :
-    def __init__(self, true_class=None):
+    def __init__(self, true_class=None, cluster=None):
         self.true_class = true_class
         self.tokens = defaultdict(lambda:0)
+        self.cluster = None
 
     def add_tokens(self, token_list) :
         for item in token_list :
@@ -29,12 +30,12 @@ def cosine_similarity(d1,d2) :
     union = d1.tokens.keys() | d2.tokens.keys()
     num = sum([d1.tokens[item] * d2.tokens[item] for item in union])
     dm =  sqrt(sum([d1.tokens[item]**2 for item in d1.tokens.keys()])) * sqrt(sum([d2.tokens[item]**2 for item in d2.tokens.keys()]))
-    
+    print(dm)
     #calculate cosine
     cos = num / dm
 
-    print(num)
-    print("COS:" + str(cos))
+   # print(num)
+  #  print("COS:" + str(cos))
     return cos
   
    
