@@ -51,12 +51,33 @@ def convert_to_lowercase(token) :
 # call this like so:
 # result = k_means(2, ['pos','neg'], positive_docs + negative_docs)
 #ONLY ONE CLUSTER
-# compute_homogeneity(re sult, ['pos','neg'])
+# compute_homogeneity(result, ['pos','neg'])
 def compute_homogeneity(list_of_clusters, list_of_classes) :
     # hlist will be the homogeneity for each cluster.
+    hlist = []
+    ##loop through the list of clusters
+    for cluster in list_of_clusters :
+        #find the dominant class
+        findDominate = []
+        #loop through the list of classes
+        for c in list_of_classes :
+            #for class the highest amount of members
+            max = -1
+            dom = 0
+            class_list = [item for item in cluster.members if item.true_class == c]
+            class_length = len(class_list)
+            #pos is 500, neg is 400. I want to get the total for the cluster. cluster.length
+            if class_length > max :
+                max = class_length 
+                dom = class_length
+            
+        
+        #divide the number in the dominant class with teh length of the cluster
+        hlist.append(dom / len(cluster.members))
+
     #hlist = []
     #for c in list_of_clusters :
-        
+    return hlist
     pass
     #return hlist
 
@@ -94,7 +115,7 @@ if __name__=="__main__" :
                                     filters=[],
                                  transforms=[])
     
-    
+
     result = k_means(2, ['pos','neg'], positive_docs + negative_docs)
 
     #print(negative_docs)
