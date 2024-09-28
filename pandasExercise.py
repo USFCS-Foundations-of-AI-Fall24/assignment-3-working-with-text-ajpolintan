@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 bc_data = pd.read_csv('breast-cancer.data')
 bc_data.head()
@@ -11,7 +12,7 @@ yes = classifications.filter(like='recurrence-events', axis=0)
 print(no)
 
 #look 
-counts = classifications.max()
+counts = classifications.mode()
 common = {}
 print("MOST COMMON: " + counts)
 
@@ -21,5 +22,12 @@ print("MOST COMMON: " + counts)
 summary = bc_data.describe(include=[np.object_, pd.Categorical])
 print(summary)
 
+recurr = bc_data[bc_data['class'] == 'recurrence-events']
+ages = recurr.groupby('age').size()
+
+ages.plot(kind='bar', xlabel="ages", ylabel="recurrences", title="age vs recurrences")
+plt.show()
+print(recurr)
+print(ages)
 #print(classifications)
 #compare the counts
