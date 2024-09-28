@@ -40,11 +40,11 @@ def not_cat(token) :
 
 # you do this.
 def remove_trailing_punct(token) :
-    pass
+    return token.strip()
 
 # and this
 def convert_to_lowercase(token) :
-    pass
+    return token.tolower()
 
 
 
