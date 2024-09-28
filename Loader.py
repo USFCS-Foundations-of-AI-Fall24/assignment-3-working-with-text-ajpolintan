@@ -29,7 +29,8 @@ def create_easy_documents(list_of_docs, true_class, filters=None, transforms=Non
 
 # you do this.
 def not_stopword(token) :
-    pass
+    stop_words = ['a', 'an', 'the']
+    return token is not stop_words
 
 def not_cat(token) :
     return token is not 'cat'
